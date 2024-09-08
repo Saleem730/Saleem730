@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# sample_script.sh
+# A simple Bash script to demonstrate basic operations
+
+# Function to display a greeting
+greet_user() {
+    echo "Hello, $1! Welcome to this simple Bash script."
+}
+
+# Prompt the user for their name
+echo "Please enter your name:"
+read user_name
+
+# Call the greet_user function with the user's name
+greet_user $user_name
+
+# Check if a file exists in the current directory
+file_name="testfile.txt"
+
+if [ -f "$file_name" ]; then
+    echo "The file '$file_name' exists in the current directory."
+else
+    echo "The file '$file_name' does not exist. Creating the file now."
+    touch "$file_name"
+    echo "This is a sample file." > "$file_name"
+    echo "File '$file_name' created."
+fi
+
+# Display the contents of the file
+echo "Contents of '$file_name':"
+cat "$file_name"
+
+# End of script
+echo "Script completed successfully!"
+
